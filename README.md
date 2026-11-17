@@ -1,23 +1,26 @@
-# NFS-e Cycle Assistant
+# NFS-e Invoice Prep Extension
 
-An early browser extension prototype for copying a NetSupport payment cycle into a format that can be reviewed when preparing a Brazilian electronic service invoice (NFS-e). This repository contains the **0.1.1** edition. Its popup is in Brazilian Portuguese.
+A browser extension that reads pending payment cycles from NetSupport and helps prepare a Brazilian electronic service invoice (NFS-e) in the National NFS-e Portal. The popup is in Brazilian Portuguese.
 
-## Install locally
+## Install
 
-1. Download or clone this repository.
-2. Open `edge://extensions` in Microsoft Edge or `chrome://extensions` in Chrome.
-3. Enable **Developer mode** and choose **Load unpacked**.
-4. Select the folder containing [`manifest.json`](manifest.json).
+The extension uses Manifest V3 and standard browser APIs. Use a current desktop version of Chrome or Microsoft Edge on Windows, macOS, or Linux.
 
-## Capture a cycle
+1. Download or clone this repository. Extract the archive if you downloaded a ZIP.
+2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
+3. Enable **Developer mode**, click **Load unpacked**, and select the folder that contains `manifest.json`.
 
-1. Sign in to NetSupport and open **Extrato de Pagamentos**.
-2. Open the extension and select **Capturar ciclo pendente**.
-3. Compare the captured reference and amount with the payment statement. The draft description uses the month of the captured reference date, so verify it against the actual service period.
-4. Select **Copiar dados** to copy the values to the clipboard. The popup also shows the saved values when you open the national NFS-e portal.
+See the browser instructions for loading extensions locally. [Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) · [Microsoft Edge](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/getting-started/extension-sideloading)
 
-The capture reads visible dates and amounts near the first **Nota Fiscal** button it finds. Its results depend on the layout of the payment statement. Review the values and complete invoice entry and submission manually.
+## Prepare a draft
 
-## Data and access
+1. Sign in to NetSupport and open **Extrato de Pagamentos**. Select **Capturar ciclo pendente** in the popup to read the first visible pending cycle.
+2. Compare the captured service period and amount with the statement. Use **Copiar dados** to copy the result to the clipboard.
+3. Sign in to the National NFS-e Portal in a separate tab. Choose the issuer, recipient, location, service classification, and tax options in the portal for the draft you are preparing.
+4. Use the extension on each applicable draft screen to prefill and check the service date, description, and amount. Advance through the form in the portal and verify the final summary there before submitting.
 
-The extension runs the capture on the NetSupport payment site after you click the button. It keeps the most recent result in the extension's local storage. Select **Limpar** to remove it. The repository contains the extension source and excludes account records and captured payment data.
+The extension can check for possible duplicates in the visible invoice list. Review the list in the portal if the result is inconclusive. The capture and form checks depend on the current page layout and the data visible in your browser session.
+
+## Data handling
+
+The extension reads the supported NetSupport and NFS-e pages when you use the popup. It keeps the captured cycle in the browser extension's session memory. Closing the browser or selecting **Limpar ciclo** clears it. Account and tax selections come from your active portal session.

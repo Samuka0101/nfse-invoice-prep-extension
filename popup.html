@@ -3,34 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Assistente NFS-e</title>
+  <title>Assistente NFS-e Portátil</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <main>
-    <h1>Assistente NFS-e</h1>
-    <p id="contexto" class="muted">Verificando a página atual...</p>
+    <h1>Assistente NFS-e Portátil</h1>
+    <p id="context">Verificando a aba atual…</p>
+    <button type="button" id="capture" hidden>Capturar ciclo pendente</button>
 
-    <section id="captura" hidden>
-      <p>Use este botão na tela <strong>Extrato de Pagamentos</strong>.</p>
-      <button id="capturar">Capturar ciclo pendente</button>
-    </section>
-
-    <section id="dados" hidden>
-      <h2>Ciclo preparado</h2>
+    <section id="cycle" hidden aria-label="Ciclo capturado">
       <dl>
-        <div><dt>Referência</dt><dd id="referencia">-</dd></div>
-        <div><dt>Competência</dt><dd id="competencia">-</dd></div>
-        <div><dt>Valor</dt><dd id="valor">-</dd></div>
-        <div><dt>Descrição</dt><dd id="descricao">-</dd></div>
+        <div><dt>Referência</dt><dd id="reference"></dd></div>
+        <div><dt>Mês do serviço</dt><dd id="service-month"></dd></div>
+        <div><dt>Valor</dt><dd id="amount"></dd></div>
+        <div><dt>Descrição</dt><dd id="description"></dd></div>
       </dl>
-      <p id="alerta" class="alerta" hidden></p>
-      <button id="copiar">Copiar dados</button>
-      <button id="limpar" class="secondary">Limpar</button>
+      <button type="button" id="copy">Copiar dados</button>
+      <button type="button" id="clear" class="secondary">Limpar ciclo</button>
     </section>
 
-    <p id="mensagem" role="status"></p>
+    <section id="portal" hidden aria-label="Etapa do Emissor Nacional">
+      <div id="service-date-field" hidden>
+        <label for="service-date">Data de competência confirmada</label>
+        <input id="service-date" type="date">
+      </div>
+      <button type="button" id="prepare"></button>
+      <ul id="checks" hidden></ul>
+    </section>
+
+    <p id="status" role="status" aria-live="polite"></p>
   </main>
-  <script src="popup.js"></script>
+  <script type="module" src="popup.mjs"></script>
 </body>
 </html>
