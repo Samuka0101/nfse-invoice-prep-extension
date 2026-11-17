@@ -1,0 +1,15 @@
+:root { color-scheme: light; font-family: Arial, sans-serif; }
+body { margin: 0; width: 360px; background: #f6f7fb; color: #202334; }
+main { padding: 18px; }
+h1 { margin: 0 0 6px; font-size: 20px; }
+h2 { margin: 18px 0 10px; font-size: 15px; }
+p { line-height: 1.4; }
+.muted { color: #697086; font-size: 12px; }
+dl { margin: 0; }
+dl div { padding: 8px 0; border-bottom: 1px solid #dfe2eb; }
+dt { color: #697086; font-size: 11px; text-transform: uppercase; }
+dd { margin: 3px 0 0; font-size: 13px; overflow-wrap: anywhere; }
+button { width: 100%; margin-top: 10px; padding: 11px; border: 0; border-radius: 8px; background: #5f61ee; color: white; font-weight: 700; cursor: pointer; }
+button.secondary { background: #e4e6ef; color: #343746; }
+.alerta { padding: 10px; border-radius: 7px; background: #fff1cf; color: #684d00; font-size: 12px; }
+#mensagem { min-height: 18px; margin-bottom: 0; font-size: 12px; }

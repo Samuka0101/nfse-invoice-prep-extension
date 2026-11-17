@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assistente NFS-e</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Assistente NFS-e</h1>
+    <p id="contexto" class="muted">Verificando a página atual...</p>
+
+    <section id="captura" hidden>
+      <p>Use este botão na tela <strong>Extrato de Pagamentos</strong>.</p>
+      <button id="capturar">Capturar ciclo pendente</button>
+    </section>
+
+    <section id="dados" hidden>
+      <h2>Ciclo preparado</h2>
+      <dl>
+        <div><dt>Referência</dt><dd id="referencia">-</dd></div>
+        <div><dt>Competência</dt><dd id="competencia">-</dd></div>
+        <div><dt>Valor</dt><dd id="valor">-</dd></div>
+        <div><dt>Descrição</dt><dd id="descricao">-</dd></div>
+      </dl>
+      <p id="alerta" class="alerta" hidden></p>
+      <button id="copiar">Copiar dados</button>
+      <button id="limpar" class="secondary">Limpar</button>
+    </section>
+
+    <p id="mensagem" role="status"></p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

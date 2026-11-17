@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Assistente NFS-e NetSupport",
+  "version": "0.1.1",
+  "description": "Captura ciclos pendentes da NetSupport e auxilia a conferência no Emissor Nacional.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://nssupport.netsupport.com.br/*",
+    "https://www.nfse.gov.br/*"
+  ],
+  "action": {
+    "default_title": "Assistente NFS-e",
+    "default_popup": "popup.html"
+  }
+}
